@@ -17,10 +17,10 @@ convert_match print [] = {
 int i, j, len = 0;
 va_list ap;
 va_start(ap, format);
-if (format == NULL || (format[0] == "%" && format[1] == "\0"))
+if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 return (-1);
 Here:
-for (i = 0; format[i] != "\0"; i++)
+for (i = 0; format[i] != '\0'; i++)
 {
 for (j = 13; j >= 0; j--)
 {
