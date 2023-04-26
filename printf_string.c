@@ -17,7 +17,7 @@ length = _strlen(ch);
 j = 0;
 while (j < length)
 {
-_putchar(ch[j]);
+putchar(ch[j]);
 j++;
 }
 return (length);
@@ -28,7 +28,7 @@ length = _strlen(ch);
 j = 0;
 while (j < length)
 {
-_putchar(ch[j]);
+putchar(ch[j]);
 j++;
 }
 return (length);

@@ -32,7 +32,7 @@ i = i + 2;
 goto Here;
 }
 }
-_putchar(format[i]);
+putchar(format[i]);
 len++;
 i++;
 }

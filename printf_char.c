@@ -9,6 +9,6 @@ int printf_char(va_list ap)
 	char c;
 
 	c = va_arg(ap, int);
-	_putchar(c);
+	putchar(c);
 	return (1);
 }
