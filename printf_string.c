@@ -20,7 +20,7 @@ while (j < length)
 putchar(ch[j]);
 j++;
 }
-return (length);
+/*return (length);*/
 }
 else
 {
@@ -31,7 +31,7 @@ while (j < length)
 putchar(ch[j]);
 j++;
 }
-return (length);
+/*return (length);*/
 }
-
+return (length);
 }
