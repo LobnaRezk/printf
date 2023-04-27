@@ -1,30 +1,96 @@
-#include"main.h"
+#include "main.h"
+
+
+/****************** PRINT POINTER ******************/
+
 /**
- * printf_pointer - prints an hexgecimal number.
- * @val: arguments.
- * Return: counter.
+
+ * print_pointer - Prints the value of a pointer variable
+
+ * @types: List a of arguments
+
+ * @buffer: Buffer array to handle print
+
+ * @flags:  Calculates active flags
+
+ * @width: get width
+
+ * @precision: Precision specification
+
+ * @size: Size specifier
+
+ * Return: Number of chars printed.
+
  */
-int printf_pointer(va_list val)
+
+int print_pointer(va_list types, char buffer[],
+
+        int flags, int width, int precision, int size)
+
 {
-	void *p;
-	char *s = "(nil)";
-	long int a;
-	int b;
-	int i;
 
-	p = va_arg(val, void*);
-	if (p == NULL)
-	{
-		for (i = 0; s[i] != '\0'; i++)
-		{
-			_putchar(s[i]);
-		}
-		return (i);
-	}
+        char extra_c = 0, padd = ' ';
 
-	a = (unsigned long int)p;
-	_putchar('0');
-	_putchar('x');
-	b = printf_hex_aux(a);
-	return (b + 2);
+        int ind = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
+
+        unsigned long num_addrs;
+
+        char map_to[] = "0123456789abcdef";
+
+        void *addrs = va_arg(types, void *);
+
+
+        UNUSED(width);
+
+        UNUSED(size);
+
+
+        if (addrs == NULL)
+
+                return (write(1, "(nil)", 5));
+
+
+        buffer[BUFF_SIZE - 1] = '\0';
+
+        UNUSED(precision);
+
+
+        num_addrs = (unsigned long)addrs;
+
+
+        while (num_addrs > 0)
+
+        {
+
+                buffer[ind--] = map_to[num_addrs % 16];
+
+                num_addrs /= 16;
+
+                length++;
+
+        }
+
+
+        if ((flags & F_ZERO) && !(flags & F_MINUS))
+
+                padd = '0';
+
+        if (flags & F_PLUS)
+
+                extra_c = '+', length++;
+
+        else if (flags & F_SPACE)
+
+                extra_c = ' ', length++;
+
+
+        ind++;
+
+
+        /*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
+
+        return (write_pointer(buffer, ind, length,
+
+                width, flags, padd, extra_c, padd_start));
+
 }
