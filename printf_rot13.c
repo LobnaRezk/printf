@@ -1,37 +1,100 @@
 #include"main.h"
-/**
- * printf_rot13 - printf str to ROT13 place into buffer
- * @args: type struct va_arg where is allocated printf arguments
- * Return: counter
- *
- */
-int printf_rot13(va_list args)
-{
-	int i, j, counter = 0;
-	int k = 0;
-	char *s = va_arg(args, char*);
-	char alpha[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-	char beta[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
+/************************* PRINT A STRING IN ROT13 *************************/
 
-	if (s == NULL)
-		s = "(null)";
-	for (i = 0; s[i]; i++)
-	{
-		k = 0;
-		for (j = 0; alpha[j] && !k; j++)
-		{
-			if (s[i] == alpha[j])
-			{
-				_putchar(beta[j]);
-				counter++;
-				k = 1;
-			}
-		}
-		if (!k)
-		{
-			_putchar(s[i]);
-			counter++;
-		}
-	}
-	return (counter);
+/**
+
+ * print_rot13string - Print a string in rot13.
+
+ * @types: Lista of arguments
+
+ * @buffer: Buffer array to handle print
+
+ * @flags:  Calculates active flags
+
+ * @width: get width
+
+ * @precision: Precision specification
+
+ * @size: Size specifier
+
+ * Return: Numbers of chars printed
+
+ */
+
+int print_rot13string(va_list types, char buffer[],
+
+        int flags, int width, int precision, int size)
+
+{
+
+        char x;
+
+        char *str;
+
+        unsigned int i, j;
+
+        int count = 0;
+
+        char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+        char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+
+        str = va_arg(types, char *);
+
+        UNUSED(buffer);
+
+        UNUSED(flags);
+
+        UNUSED(width);
+
+        UNUSED(precision);
+
+        UNUSED(size);
+
+
+        if (str == NULL)
+
+                str = "(AHYY)";
+
+        for (i = 0; str[i]; i++)
+
+        {
+
+                for (j = 0; in[j]; j++)
+
+                {
+
+                        if (in[j] == str[i])
+
+                        {
+
+                                x = out[j];
+
+                                write(1, &x, 1);
+
+                                count++;
+
+                                break;
+
+                        }
+
+                }
+
+                if (!in[j])
+
+                {
+
+                        x = str[i];
+
+                        write(1, &x, 1);
+
+                        count++;
+
+                }
+
+        }
+
+        return (count);
+
 }
