@@ -12,6 +12,6 @@ if (format[curr_i] == 'l')
 size = S_LONG;
 else if (format[curr_i] == 'h')
 size = S_SHORT;
-(size == 0) ? *i = curr_i - 1 : *i = curr_i;
+(size == 0) ? (*i = curr_i - 1) : (*i = curr_i);
 return (size);
 }
