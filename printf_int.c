@@ -1,5 +1,6 @@
 #include"main.h"
 #include <ctype.h>
+long int convert_size_number(long int num, int size);
 /************************* PRINT INT *************************/
 /**
  * print_int - Print int

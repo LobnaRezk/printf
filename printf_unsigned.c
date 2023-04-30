@@ -1,5 +1,6 @@
 #include "main.h"
 #include <ctype.h>
+long int convert_size_unsgnd(unsigned long int num, int size);
 /************************* PRINT UNSIGNED NUMBER *************************/
 /**
  * print_unsigned - Prints an unsigned number
