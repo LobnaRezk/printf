@@ -1,4 +1,5 @@
 #include"main.h"
+#include <ctype.h>
 /************************* PRINT INT *************************/
 /**
  * print_int - Print int

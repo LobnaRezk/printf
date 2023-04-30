@@ -1,4 +1,5 @@
 #include"main.h"
+#include <ctype.h>
 #include <stdarg.h>
 /************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
 /**

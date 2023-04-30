@@ -1,4 +1,5 @@
 #include "main.h"
+#include <ctype.h>
 /**
  * get_width - Calculates the width for printing
  * @format: Formatted string in which to print the arguments.
@@ -12,7 +13,7 @@ int curr_i, width = 0;
 curr_i = *i + 1;
 while (format[curr_i] != '\0')
 {
-if (is_digit(format[curr_i]))
+if (isxdigit(format[curr_i]))
 {
 width *= 10;
 width += format[curr_i] - '0';

@@ -1,5 +1,5 @@
 #include"main.h"
-
+#include <ctype.h>
 /************************* PRINT NON PRINTABLE *************************/
 /**
  * print_non_printable - Prints ascii codes in hexa of non printable chars
