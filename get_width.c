@@ -25,7 +25,7 @@ break;
 }
 else
 break;
-curr_i++
+curr_i++;
 }
 *i = curr_i - 1;
 return (width);
