@@ -16,7 +16,7 @@ return (precision);
 precision = 0;
 for (curr_i += 1; format[curr_i] != '\0'; curr_i++)
 {
-int n = is_digit(format[curr_i]);
+int n = isxdigit(format[curr_i]);
 if (n)
 {
 precision *= 10;
