@@ -1,3 +1,5 @@
+#include"main.h"
+#include <stdarg.h>
 /************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
 /**
  * print_octal - Prints an unsigned number in octal notation
