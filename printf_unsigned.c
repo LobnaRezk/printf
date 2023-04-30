@@ -65,4 +65,3 @@ return (write(1, &buffer[0], i) + write(1, &buffer[ind], length));
 }
 return (write(1, &buffer[ind], length));
 }
-/************* PRINT UNSIGNED NUMBER IN
