@@ -1,34 +1,29 @@
-#include"main.h"
+/************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
 /**
- * printf_oct - prints an octal number.
- * @val: arguments.
- * Return: counter.
+ * print_octal - Prints an unsigned number in octal notation
+ * @types: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed
  */
-int printf_oct(va_list val)
+int print_octal(va_list types, char buffer[],
+int flags, int width, int precision, int size)
 {
-	int i;
-	int *array;
-	int counter = 0;
-	unsigned int num = va_arg(val, unsigned int);
-	unsigned int temp = num;
-
-	while (num / 8 != 0)
-	{
-		num /= 8;
-		counter++;
-	}
-	counter++;
-	array = malloc(counter * sizeof(int));
-
-	for (i = 0; i < counter; i++)
-	{
-		array[i] = temp % 8;
-		temp /= 8;
-	}
-	for (i = counter - 1; i >= 0; i--)
-	{
-		_putchar(array[i] + '0');
-	}
-	free(array);
-	return (counter);
+int i = BUFF_SIZE - 2;
+unsigned long int num = va_arg(types, unsigned long int);
+unsigned long int init_num = num;
+UNUSED(width);
+num = convert_size_unsgnd(num, size);
+if (num == 0)
+buffer[i--] = '0';
+buffer[BUFF_SIZE - 1] = '\0';
+for (; num > 0; num /= 8)
+buffer[i--] = (num % 8) + '0';
+if (flags & F_HASH && init_num != 0)
+buffer[i--] = '0';
+i++;
+return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
