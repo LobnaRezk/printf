@@ -1,5 +1,6 @@
 #include "main.h"
 #include <ctype.h>
+int is_digit(char c);
 /**
  * get_precision - Calculates the precision for printing
  * @format: Formatted string in which to print the arguments
@@ -16,7 +17,7 @@ return (precision);
 precision = 0;
 for (curr_i += 1; format[curr_i] != '\0'; curr_i++)
 {
-int n = isxdigit(format[curr_i]);
+int n = is_digit(format[curr_i]);
 if (n)
 {
 precision *= 10;

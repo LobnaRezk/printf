@@ -1,6 +1,7 @@
 #include"main.h"
 #include <ctype.h>
 #include <stdarg.h>
+long int convert_size_unsgnd(unsigned long int num, int size);
 /************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
 /**
  * print_octal - Prints an unsigned number in octal notation

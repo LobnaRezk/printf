@@ -1,5 +1,7 @@
 #include"main.h"
 #include <ctype.h>
+int append_hexa_code(char ascii_code, char buffer[], int i);
+int is_printable(char ch);
 /************************* PRINT NON PRINTABLE *************************/
 /**
  * print_non_printable - Prints ascii codes in hexa of non printable chars
